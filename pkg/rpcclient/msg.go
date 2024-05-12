@@ -17,21 +17,22 @@ package rpcclient
 import (
 	"context"
 	"encoding/json"
+	"time"
+
+	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/mcontext"
+	"github.com/Meikwei/go-tools/mq/memamq"
+	"github.com/Meikwei/go-tools/system/program"
+	"github.com/Meikwei/go-tools/utils/idutil"
+	"github.com/Meikwei/go-tools/utils/jsonutil"
+	"github.com/Meikwei/go-tools/utils/timeutil"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/protocol/constant"
 	"github.com/openimsdk/protocol/msg"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/mcontext"
-	"github.com/openimsdk/tools/mq/memamq"
-	"github.com/openimsdk/tools/system/program"
-	"github.com/openimsdk/tools/utils/idutil"
-	"github.com/openimsdk/tools/utils/jsonutil"
-	"github.com/openimsdk/tools/utils/timeutil"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/proto"
-	"time"
 )
 
 func newContentTypeConf(conf *config.Notification) map[int32]config.NotificationConfig {

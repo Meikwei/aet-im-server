@@ -16,16 +16,17 @@ package controller
 
 import (
 	"context"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"time"
 
+	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
+
+	"github.com/Meikwei/go-tools/db/pagination"
+	"github.com/Meikwei/go-tools/db/tx"
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/dtm-labs/rockscache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	relationtb "github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/tools/db/pagination"
-	"github.com/openimsdk/tools/db/tx"
-	"github.com/openimsdk/tools/utils/datautil"
 	"github.com/redis/go-redis/v9"
 )
 
@@ -112,7 +113,7 @@ func NewGroupDatabase(
 	groupDB relationtb.GroupModelInterface,
 	groupMemberDB relationtb.GroupMemberModelInterface,
 	groupRequestDB relationtb.GroupRequestModelInterface,
-	ctxTx tx.Tx,
+	ctxTx tx.MongoTx,
 	groupHash cache.GroupHash,
 ) GroupDatabase {
 	rcOptions := rockscache.NewDefaultOptions()
@@ -131,7 +132,7 @@ type groupDatabase struct {
 	groupDB        relationtb.GroupModelInterface
 	groupMemberDB  relationtb.GroupMemberModelInterface
 	groupRequestDB relationtb.GroupRequestModelInterface
-	ctxTx          tx.Tx
+	ctxTx          tx.MongoTx
 	cache          cache.GroupCache
 }
 

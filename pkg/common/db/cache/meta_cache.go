@@ -20,11 +20,11 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/mw/specialerror"
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/dtm-labs/rockscache"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/mw/specialerror"
-	"github.com/openimsdk/tools/utils/datautil"
 	"github.com/redis/go-redis/v9"
 )
 

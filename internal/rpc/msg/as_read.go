@@ -17,13 +17,13 @@ package msg
 import (
 	"context"
 
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/utils/datautil"
 	cbapi "github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
 	"github.com/openimsdk/protocol/constant"
 	"github.com/openimsdk/protocol/msg"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/utils/datautil"
 	"github.com/redis/go-redis/v9"
 )
 

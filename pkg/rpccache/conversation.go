@@ -17,13 +17,13 @@ package rpccache
 import (
 	"context"
 
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/log"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/cachekey"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/localcache"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
 	pbconversation "github.com/openimsdk/protocol/conversation"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/log"
 	"github.com/redis/go-redis/v9"
 )
 

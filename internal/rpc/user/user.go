@@ -16,14 +16,21 @@ package user
 
 import (
 	"context"
-	"github.com/openimsdk/open-im-server/v3/internal/rpc/friend"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
-	"github.com/openimsdk/tools/db/redisutil"
 	"math/rand"
 	"strings"
 	"time"
 
+	"github.com/Meikwei/go-tools/db/redisutil"
+	"github.com/openimsdk/open-im-server/v3/internal/rpc/friend"
+	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
+	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
+
+	"github.com/Meikwei/go-tools/db/mongoutil"
+	"github.com/Meikwei/go-tools/db/pagination"
+	registry "github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
@@ -36,12 +43,6 @@ import (
 	"github.com/openimsdk/protocol/constant"
 	"github.com/openimsdk/protocol/sdkws"
 	pbuser "github.com/openimsdk/protocol/user"
-	"github.com/openimsdk/tools/db/mongoutil"
-	"github.com/openimsdk/tools/db/pagination"
-	registry "github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/utils/datautil"
 	"google.golang.org/grpc"
 )
 

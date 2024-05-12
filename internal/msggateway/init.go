@@ -16,11 +16,12 @@ package msggateway
 
 import (
 	"context"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/tools/utils/datautil"
 	"time"
 
-	"github.com/openimsdk/tools/log"
+	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
+
+	"github.com/Meikwei/go-tools/log"
 )
 
 type Config struct {

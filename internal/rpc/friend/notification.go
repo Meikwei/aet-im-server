@@ -17,6 +17,7 @@ package friend
 import (
 	"context"
 
+	"github.com/Meikwei/go-tools/mcontext"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
@@ -26,7 +27,6 @@ import (
 	"github.com/openimsdk/protocol/constant"
 	pbfriend "github.com/openimsdk/protocol/friend"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/mcontext"
 )
 
 type FriendNotificationSender struct {

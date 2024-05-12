@@ -17,24 +17,25 @@ package msggateway
 import (
 	"context"
 	"fmt"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
-	pbAuth "github.com/openimsdk/protocol/auth"
-	"github.com/openimsdk/tools/mcontext"
 	"net/http"
 	"sync"
 	"sync/atomic"
 	"time"
 
+	"github.com/Meikwei/go-tools/mcontext"
+	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
+	pbAuth "github.com/openimsdk/protocol/auth"
+
+	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/utils/stringutil"
 	"github.com/go-playground/validator/v10"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
 	"github.com/openimsdk/protocol/constant"
 	"github.com/openimsdk/protocol/msggateway"
-	"github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/utils/stringutil"
 	"golang.org/x/sync/errgroup"
 )
 

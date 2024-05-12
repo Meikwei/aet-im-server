@@ -2,14 +2,15 @@ package msg
 
 import (
 	"context"
+	"strings"
+	"time"
+
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/log"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/protocol/conversation"
 	"github.com/openimsdk/protocol/msg"
 	"github.com/openimsdk/protocol/wrapperspb"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/log"
-	"strings"
-	"time"
 )
 
 func (m *msgServer) ClearMsg(ctx context.Context, req *msg.ClearMsgReq) (_ *msg.ClearMsgResp, err error) {

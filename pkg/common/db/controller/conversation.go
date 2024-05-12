@@ -18,15 +18,15 @@ import (
 	"context"
 	"time"
 
+	"github.com/Meikwei/go-tools/db/pagination"
+	"github.com/Meikwei/go-tools/db/tx"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/go-tools/utils/stringutil"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	relationtb "github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 	"github.com/openimsdk/open-im-server/v3/pkg/msgprocessor"
 	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/tools/db/pagination"
-	"github.com/openimsdk/tools/db/tx"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/utils/datautil"
-	"github.com/openimsdk/tools/utils/stringutil"
 )
 
 type ConversationDatabase interface {
@@ -67,7 +67,7 @@ type ConversationDatabase interface {
 	// FindRecvMsgNotNotifyUserIDs(ctx context.Context, groupID string) ([]string, error)
 }
 
-func NewConversationDatabase(conversation relationtb.ConversationModelInterface, cache cache.ConversationCache, tx tx.Tx) ConversationDatabase {
+func NewConversationDatabase(conversation relationtb.ConversationModelInterface, cache cache.ConversationCache, tx tx.MongoTx) ConversationDatabase {
 	return &conversationDatabase{
 		conversationDB: conversation,
 		cache:          cache,
@@ -78,7 +78,7 @@ func NewConversationDatabase(conversation relationtb.ConversationModelInterface,
 type conversationDatabase struct {
 	conversationDB relationtb.ConversationModelInterface
 	cache          cache.ConversationCache
-	tx             tx.Tx
+	tx             tx.MongoTx
 }
 
 func (c *conversationDatabase) SetUsersConversationFieldTx(ctx context.Context, userIDs []string, conversation *relationtb.ConversationModel, fieldMap map[string]any) (err error) {

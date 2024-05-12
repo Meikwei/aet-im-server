@@ -15,12 +15,13 @@
 package cmd
 
 import (
-	"github.com/openimsdk/protocol/auth"
-	"github.com/openimsdk/tools/apiresp"
-	"github.com/openimsdk/tools/utils/jsonutil"
-	"github.com/stretchr/testify/mock"
 	"math"
 	"testing"
+
+	"github.com/Meikwei/go-tools/apiresp"
+	"github.com/Meikwei/go-tools/utils/jsonutil"
+	"github.com/openimsdk/protocol/auth"
+	"github.com/stretchr/testify/mock"
 )
 
 // MockRootCmd is a mock type for the RootCmd type

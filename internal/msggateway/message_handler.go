@@ -18,15 +18,15 @@ import (
 	"context"
 	"sync"
 
+	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/utils/jsonutil"
 	"github.com/go-playground/validator/v10"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
 	"github.com/openimsdk/protocol/msg"
 	"github.com/openimsdk/protocol/push"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/utils/jsonutil"
 	"google.golang.org/protobuf/proto"
 )
 

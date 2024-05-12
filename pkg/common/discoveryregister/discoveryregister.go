@@ -15,12 +15,13 @@
 package discoveryregister
 
 import (
+	"time"
+
+	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/discovery/zookeeper"
+	"github.com/Meikwei/go-tools/errs"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/discoveryregister/kubernetes"
-	"github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/discovery/zookeeper"
-	"github.com/openimsdk/tools/errs"
-	"time"
 )
 
 const (

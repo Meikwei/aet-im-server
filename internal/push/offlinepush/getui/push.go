@@ -18,18 +18,19 @@ import (
 	"context"
 	"crypto/sha256"
 	"encoding/hex"
-	"github.com/openimsdk/open-im-server/v3/internal/push/offlinepush/options"
 	"strconv"
 	"sync"
 	"time"
 
+	"github.com/openimsdk/open-im-server/v3/internal/push/offlinepush/options"
+
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/mcontext"
+	"github.com/Meikwei/go-tools/utils/httputil"
+	"github.com/Meikwei/go-tools/utils/splitter"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/mcontext"
-	"github.com/openimsdk/tools/utils/httputil"
-	"github.com/openimsdk/tools/utils/splitter"
 	"github.com/redis/go-redis/v9"
 )
 

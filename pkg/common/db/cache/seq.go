@@ -2,8 +2,9 @@ package cache
 
 import (
 	"context"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/utils/stringutil"
+
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/utils/stringutil"
 	"github.com/redis/go-redis/v9"
 )
 

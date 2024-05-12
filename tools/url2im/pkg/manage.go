@@ -21,7 +21,6 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	"github.com/openimsdk/tools/errs"
 	"io"
 	"log"
 	"net/http"
@@ -33,6 +32,8 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
+
+	"github.com/Meikwei/go-tools/errs"
 
 	"github.com/openimsdk/protocol/third"
 )

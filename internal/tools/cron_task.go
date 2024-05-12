@@ -17,18 +17,19 @@ package tools
 import (
 	"context"
 	"fmt"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	kdisc "github.com/openimsdk/open-im-server/v3/pkg/common/discoveryregister"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/tools/mcontext"
-	"github.com/openimsdk/tools/mw"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
 	"os"
 	"time"
 
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/log"
+	"github.com/Meikwei/go-tools/mcontext"
+	"github.com/Meikwei/go-tools/mw"
+	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
+	kdisc "github.com/openimsdk/open-im-server/v3/pkg/common/discoveryregister"
+	"github.com/openimsdk/protocol/msg"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
+
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/log"
 	"github.com/robfig/cron/v3"
 )
 

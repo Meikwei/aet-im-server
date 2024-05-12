@@ -18,7 +18,7 @@ import (
 	"bytes"
 	"encoding/gob"
 
-	"github.com/openimsdk/tools/errs"
+	"github.com/Meikwei/go-tools/errs"
 )
 
 type Encoder interface {

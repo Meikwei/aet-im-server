@@ -17,12 +17,12 @@ package controller
 import (
 	"context"
 
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/tokenverify"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/tokenverify"
 )
 
 type AuthDatabase interface {

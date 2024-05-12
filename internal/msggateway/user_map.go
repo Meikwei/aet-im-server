@@ -18,8 +18,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/utils/datautil"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/utils/datautil"
 )
 
 type UserMap struct {

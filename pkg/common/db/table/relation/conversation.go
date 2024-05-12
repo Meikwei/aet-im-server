@@ -18,7 +18,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/openimsdk/tools/db/pagination"
+	"github.com/Meikwei/go-tools/db/pagination"
 )
 
 type ConversationModel struct {

@@ -18,8 +18,8 @@ import (
 	"context"
 	"time"
 
+	"github.com/Meikwei/go-tools/errs"
 	"github.com/openimsdk/protocol/group"
-	"github.com/openimsdk/tools/errs"
 )
 
 func (s *groupServer) GroupCreateCount(ctx context.Context, req *group.GroupCreateCountReq) (*group.GroupCreateCountResp, error) {

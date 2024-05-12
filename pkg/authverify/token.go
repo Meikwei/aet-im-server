@@ -18,10 +18,10 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/Meikwei/go-tools/mcontext"
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
-	"github.com/openimsdk/tools/mcontext"
-	"github.com/openimsdk/tools/utils/datautil"
 )
 
 func Secret(secret string) jwt.Keyfunc {

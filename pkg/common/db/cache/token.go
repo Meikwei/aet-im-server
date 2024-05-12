@@ -3,9 +3,9 @@ package cache
 import (
 	"context"
 
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/utils/stringutil"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/cachekey"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/utils/stringutil"
 	"github.com/redis/go-redis/v9"
 )
 

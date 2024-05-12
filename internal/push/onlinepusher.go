@@ -2,14 +2,15 @@ package push
 
 import (
 	"context"
+	"sync"
+
+	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/openimsdk/protocol/msggateway"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/utils/datautil"
 	"golang.org/x/sync/errgroup"
 	"google.golang.org/grpc"
-	"sync"
 )
 
 const (

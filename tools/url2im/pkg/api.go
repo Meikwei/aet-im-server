@@ -22,10 +22,10 @@ import (
 	"io"
 	"net/http"
 
+	"github.com/Meikwei/go-tools/errs"
 	"github.com/openimsdk/protocol/auth"
 	"github.com/openimsdk/protocol/constant"
 	"github.com/openimsdk/protocol/third"
-	"github.com/openimsdk/tools/errs"
 )
 
 type Api struct {

@@ -16,12 +16,14 @@ package msg
 
 import (
 	"context"
+
+	"github.com/Meikwei/go-tools/db/mongoutil"
+	"github.com/Meikwei/go-tools/db/redisutil"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/db/mongoutil"
-	"github.com/openimsdk/tools/db/redisutil"
 
+	"github.com/Meikwei/go-tools/discovery"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/mgo"
@@ -30,7 +32,6 @@ import (
 	"github.com/openimsdk/protocol/constant"
 	"github.com/openimsdk/protocol/conversation"
 	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/tools/discovery"
 	"google.golang.org/grpc"
 )
 

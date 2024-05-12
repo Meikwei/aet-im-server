@@ -17,11 +17,11 @@ package controller
 import (
 	"context"
 
+	"github.com/Meikwei/go-tools/db/pagination"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
-	"github.com/openimsdk/tools/db/pagination"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/utils/datautil"
 )
 
 type BlackDatabase interface {

@@ -15,7 +15,7 @@
 package relation
 
 import (
-	"github.com/openimsdk/tools/errs"
+	"github.com/Meikwei/go-tools/errs"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 

@@ -15,14 +15,15 @@
 package config
 
 import (
-	"github.com/openimsdk/tools/db/mongoutil"
-	"github.com/openimsdk/tools/db/redisutil"
-	"github.com/openimsdk/tools/mq/kafka"
-	"github.com/openimsdk/tools/s3/cos"
-	"github.com/openimsdk/tools/s3/minio"
-	"github.com/openimsdk/tools/s3/oss"
 	"strings"
 	"time"
+
+	"github.com/Meikwei/go-tools/db/mongoutil"
+	"github.com/Meikwei/go-tools/db/redisutil"
+	"github.com/Meikwei/go-tools/mq/kafka"
+	"github.com/Meikwei/go-tools/s3/cos"
+	"github.com/Meikwei/go-tools/s3/minio"
+	"github.com/Meikwei/go-tools/s3/oss"
 )
 
 type CacheConfig struct {

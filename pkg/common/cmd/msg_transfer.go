@@ -16,9 +16,10 @@ package cmd
 
 import (
 	"context"
+
+	"github.com/Meikwei/go-tools/system/program"
 	"github.com/openimsdk/open-im-server/v3/internal/msgtransfer"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/tools/system/program"
 	"github.com/spf13/cobra"
 )
 

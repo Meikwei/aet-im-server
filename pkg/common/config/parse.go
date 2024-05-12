@@ -19,10 +19,10 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/field"
 	"github.com/openimsdk/open-im-server/v3/pkg/msgprocessor"
 	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/field"
 	"gopkg.in/yaml.v3"
 )
 

@@ -16,8 +16,9 @@ package user
 
 import (
 	"context"
+
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
-	"github.com/openimsdk/tools/utils/datautil"
 
 	cbapi "github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"

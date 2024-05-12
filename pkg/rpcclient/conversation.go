@@ -18,10 +18,10 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/system/program"
 	pbconversation "github.com/openimsdk/protocol/conversation"
-	"github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/system/program"
 	"google.golang.org/grpc"
 )
 

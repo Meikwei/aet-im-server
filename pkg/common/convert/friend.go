@@ -18,10 +18,10 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/go-tools/utils/timeutil"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/utils/datautil"
-	"github.com/openimsdk/tools/utils/timeutil"
 )
 
 func FriendPb2DB(friend *sdkws.FriendInfo) *relation.FriendModel {

@@ -16,12 +16,13 @@ package msggateway
 
 import (
 	"encoding/json"
-	"github.com/openimsdk/tools/apiresp"
 	"net/http"
 	"time"
 
+	"github.com/Meikwei/go-tools/apiresp"
+
+	"github.com/Meikwei/go-tools/errs"
 	"github.com/gorilla/websocket"
-	"github.com/openimsdk/tools/errs"
 )
 
 type LongConn interface {

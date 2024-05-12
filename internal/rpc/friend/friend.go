@@ -16,10 +16,15 @@ package friend
 
 import (
 	"context"
+
+	"github.com/Meikwei/go-tools/db/redisutil"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
-	"github.com/openimsdk/tools/db/redisutil"
 
+	"github.com/Meikwei/go-tools/db/mongoutil"
+	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
@@ -31,10 +36,6 @@ import (
 	"github.com/openimsdk/protocol/constant"
 	pbfriend "github.com/openimsdk/protocol/friend"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/db/mongoutil"
-	"github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/utils/datautil"
 	"google.golang.org/grpc"
 )
 

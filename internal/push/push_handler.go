@@ -17,6 +17,10 @@ package push
 import (
 	"context"
 	"encoding/json"
+
+	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/mcontext"
+	"github.com/Meikwei/go-tools/utils/jsonutil"
 	"github.com/openimsdk/open-im-server/v3/internal/push/offlinepush"
 	"github.com/openimsdk/open-im-server/v3/internal/push/offlinepush/options"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
@@ -26,19 +30,16 @@ import (
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
 	"github.com/openimsdk/open-im-server/v3/pkg/util/conversationutil"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/mcontext"
-	"github.com/openimsdk/tools/utils/jsonutil"
 	"github.com/redis/go-redis/v9"
 
 	"github.com/IBM/sarama"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/mq/kafka"
+	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/go-tools/utils/timeutil"
 	"github.com/openimsdk/protocol/constant"
 	pbchat "github.com/openimsdk/protocol/msg"
 	pbpush "github.com/openimsdk/protocol/push"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/mq/kafka"
-	"github.com/openimsdk/tools/utils/datautil"
-	"github.com/openimsdk/tools/utils/timeutil"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -60,7 +61,7 @@ func NewConsumerHandler(config *Config, offlinePusher offlinepush.OfflinePusher,
 	var consumerHandler ConsumerHandler
 	var err error
 	consumerHandler.pushConsumerGroup, err = kafka.NewMConsumerGroup(config.KafkaConfig.Build(), config.KafkaConfig.ToPushGroupID,
-		[]string{config.KafkaConfig.ToPushTopic})
+		[]string{config.KafkaConfig.ToPushTopic},true)
 	if err != nil {
 		return nil, err
 	}

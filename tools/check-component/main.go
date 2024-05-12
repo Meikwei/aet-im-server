@@ -18,19 +18,20 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/cmd"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/tools/db/mongoutil"
-	"github.com/openimsdk/tools/db/redisutil"
-	"github.com/openimsdk/tools/discovery/zookeeper"
-	"github.com/openimsdk/tools/mq/kafka"
-	"github.com/openimsdk/tools/s3/minio"
-	"github.com/openimsdk/tools/system/program"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 	"time"
+
+	"github.com/Meikwei/go-tools/db/mongoutil"
+	"github.com/Meikwei/go-tools/db/redisutil"
+	"github.com/Meikwei/go-tools/discovery/zookeeper"
+	"github.com/Meikwei/go-tools/mq/kafka"
+	"github.com/Meikwei/go-tools/s3/minio"
+	"github.com/Meikwei/go-tools/system/program"
+	"github.com/openimsdk/open-im-server/v3/pkg/common/cmd"
+	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 )
 
 const maxRetry = 180

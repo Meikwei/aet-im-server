@@ -11,6 +11,7 @@ To create a standard set of documentation that is quick to read and easy to unde
 ## Logging (`Logger` Interface)
 
 ### Purpose
+
 The `Logger` interface aims to provide the OpenIM project with a unified and flexible logging mechanism, supporting structured logging formats for efficient log management and analysis.
 
 ### Key Methods
@@ -35,6 +36,7 @@ The `Logger` interface aims to provide the OpenIM project with a unified and fle
 ## Error Handling (`CodeError` Interface)
 
 ### Purpose
+
 The `CodeError` interface is designed to provide a unified mechanism for error handling and wrapping, making error information more detailed and manageable.
 
 ### Key Methods
@@ -66,7 +68,7 @@ The `CodeError` interface is designed to provide a unified mechanism for error h
 
 ## Logging Standards and Code Examples
 
-In the OpenIM project, we use the unified logging package `github.com/openimsdk/tools/log` for logging to achieve efficient log management and analysis. This logging package supports structured logging formats, making it easier for developers to handle log information.
+In the OpenIM project, we use the unified logging package `github.com/Meikwei/go-tools/log` for logging to achieve efficient log management and analysis. This logging package supports structured logging formats, making it easier for developers to handle log information.
 
 ### Logger Interface and Implementation
 
@@ -96,7 +98,7 @@ func main() {
 
 ## Error Handling and Code Examples
 
-We use the `github.com/openimsdk/tools/errs` package for unified error handling and wrapping.
+We use the `github.com/Meikwei/go-tools/errs` package for unified error handling and wrapping.
 
 ### CodeError Interface and Implementation
 
@@ -121,7 +123,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/openimsdk/tools/errs"
+	"github.com/Meikwei/go-tools/errs"
 )
 
 func main() {
@@ -141,6 +143,7 @@ More details")
    It is crucial to print entry parameters and key process information at program startup. This helps understand the startup state and configuration of the program.
 
    **Code Example**:
+
    ```go
    package main
 
@@ -159,12 +162,13 @@ More details")
    Logging should be done using a specialized logging library for unified management and formatted log output.
 
    **Code Example**: Logging an info level message with `tools/log`.
+
    ```go
    package main
 
    import (
        "context"
-       "github.com/openimsdk/tools/log"
+       "github.com/Meikwei/go-tools/log"
    )
 
    func main() {
@@ -177,6 +181,7 @@ More details")
    Critical error messages or program startup failures should be indicated to the user through standard error output.
 
    **Code Example**:
+
    ```go
    package main
 
@@ -196,7 +201,7 @@ More details")
        }
    }
    ```
-   
+
    We encapsulate it into separate tools, which can output error information through the `tools/log` package.
 
    ```go
@@ -211,7 +216,7 @@ More details")
             util.ExitWithError(err)
         }
     }
-    ```
+   ```
 
 4. **Use `tools/log` package for runtime logging**  
    This ensures consistency and control over logging.
@@ -222,11 +227,12 @@ More details")
    This is to avoid duplicate logging of errors, typically errors are caught and logged at the application's outermost level.
 
    **Code Example**:
+
    ```go
    package main
 
    import (
-       "github.com/openimsdk/tools/log"
+       "github.com/Meikwei/go-tools/log"
        "context"
    )
 
@@ -255,41 +261,42 @@ More details")
 
    For API RPC calls using gRPC, logs at the information level are printed by middleware on the gRPC server side, reducing the need to manually log in each RPC method. For non-RPC applications, it's recommended to manually log key execution paths to track the application's execution flow.
 
-    **gRPC Server-Side Logging Middleware:**
+   **gRPC Server-Side Logging Middleware:**
 
-    In gRPC, `UnaryInterceptor` and `StreamInterceptor` can intercept Unary and Stream type RPC calls, respectively. Here's an example of how to implement a simple Unary RPC logging middleware:
+   In gRPC, `UnaryInterceptor` and `StreamInterceptor` can intercept Unary and Stream type RPC calls, respectively. Here's an example of how to implement a simple Unary RPC logging middleware:
 
-    ```go
-    package main
+   ```go
+   package main
 
-    import (
-        "context"
-        "google.golang.org/grpc"
-        "google.golang.org/grpc/codes"
-        "google.golang.org/grpc/status"
-        "log"
-        "time"
-    )
+   import (
+       "context"
+       "google.golang.org/grpc"
+       "google.golang.org/grpc/codes"
+       "google.golang.org/grpc/status"
+       "log"
+       "time"
+   )
 
-    // unaryServerInterceptor returns a new unary server interceptor that logs each request.
-    func unaryServerInterceptor() grpc.UnaryServerInterceptor {
-        return func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
-            // Record the start time of the request
-            start := time.Now()
-            // Call the actual RPC method
-            resp, err = handler(ctx, req)
-            // After the request ends, log the duration and other information
-            log.Printf("Request method: %s, duration: %s, error status: %v", info.FullMethod, time.Since(start), status.Code(err))
-            return resp, err
-        }
-    }
+   // unaryServerInterceptor returns a new unary server interceptor that logs each request.
+   func unaryServerInterceptor() grpc.UnaryServerInterceptor {
+       return func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
+           // Record the start time of the request
+           start := time.Now()
+           // Call the actual RPC method
+           resp, err = handler(ctx, req)
+           // After the request ends, log the duration and other information
+           log.Printf("Request method: %s, duration: %s, error status: %v", info.FullMethod, time.Since(start), status.Code(err))
+           return resp, err
+       }
+   }
 
-    func main() {
-        // Create a gRPC server and add the middleware
-        s := grpc.NewServer
+   func main() {
+       // Create a gRPC server and add the middleware
+       s := grpc.NewServer
+   ```
 
 (grpc.UnaryInterceptor(unaryServerInterceptor()))
-        // Register your service
+// Register your service
 
         // Start the gRPC server
         log.Println("Starting gRPC server...")
@@ -332,6 +339,7 @@ More details")
    When an error occurs within a function, use `errs.Wrap` to add context information to the original error.
 
    **Code Example**:
+
    ```go
    func doSomething() error {
        // Suppose an error occurs here
@@ -358,6 +366,7 @@ More details")
    When calling external libraries or system functions that return errors, also add context information to wrap the error.
 
    **Code Example**:
+
    ```go
    func readConfig(file string) error {
        _, err := os.ReadFile(file)
@@ -368,25 +377,27 @@ More details")
    }
    ```
 
-3. **No need to re-wrap errors for internal module calls**  
+3. **No need to re-wrap errors for internal module calls**
 
    If an error has been appropriately wrapped with sufficient context information in an internal module call, there's no need to wrap it again.
 
-    **Code Example**:
-    ```go
-    func doSomething() error {
-        err := doAnotherThing()
-        if err != nil {
-            return err
-        }
-        return nil
-    }
-    ```
+   **Code Example**:
+
+   ```go
+   func doSomething() error {
+       err := doAnotherThing()
+       if err != nil {
+           return err
+       }
+       return nil
+   }
+   ```
 
 4. **Ensure comprehensive wrapping of errors with detailed messages**
    When wrapping errors, ensure to provide ample context information to make the error more understandable and easier to debug.
 
    **Code Example**:
+
    ```go
    func connectDatabase() error {
        err := db.Connect(config.DatabaseURL)
@@ -397,11 +408,10 @@ More details")
    }
    ```
 
-
 ### About WrapMsg Use
 
 ```go
-// 	"github.com/openimsdk/tools/errs"
+// 	"github.com/Meikwei/go-tools/errs"
 func WrapMsg(err error, msg string, kv ...any) error {
 	if len(kv) == 0 {
 		if len(msg) == 0 {
@@ -428,17 +438,20 @@ func WrapMsg(err error, msg string, kv ...any) error {
 ```
 
 1. **Function Signature**:
+
    - `err error`: The original error object.
    - `msg string`: The message text to append to the error.
    - `kv ...any`: A variable number of parameters used to pass key-value pairs. `any` was introduced in Go 1.18 and is equivalent to `interface{}`, meaning any type.
 
 2. **Logic**:
+
    - If there are no key-value pairs (`kv` is empty):
      - If `msg` is also empty, use `errors.WithStack(err)` to return the original error with the call stack appended.
      - If `msg` is not empty, use `errors.WithMessage(err, msg)` to append the message text to the original error.
    - If there are key-value pairs, the function constructs a string containing the message text and all key-value pairs. The key-value pairs are added in the format `"key=value"`, separated by commas. If a message text is provided, it is added first, followed by a space.
 
 3. **Key-Value Pair Formatting**:
+
    - A loop iterates over all the key-value pairs, processing one pair at a time.
    - The `toString` function (although not provided in the code, we can assume it converts any type to a string) is used to convert both keys and values to strings, and they are added to a `bytes.Buffer` in the format `"key=value"`.
 
@@ -450,7 +463,7 @@ Next, let's demonstrate several ways to use the `WrapMsg` function:
 **Example 1: No Additional Information**
 
 ```go
-// "github.com/openimsdk/tools/errs"
+// "github.com/Meikwei/go-tools/errs"
 err := errors.New("original error")
 wrappedErr := errs.WrapMsg(err, "")
 // wrappedErr will contain the original error and its call stack
@@ -459,7 +472,7 @@ wrappedErr := errs.WrapMsg(err, "")
 **Example 2: Message Text Only**
 
 ```go
-// "github.com/openimsdk/tools/errs"
+// "github.com/Meikwei/go-tools/errs"
 err := errors.New("original error")
 wrappedErr := errs.WrapMsg(err, "additional error information")
 // wrappedErr will contain the original error, call stack, and "additional error information"
@@ -468,7 +481,7 @@ wrappedErr := errs.WrapMsg(err, "additional error information")
 **Example 3: Message Text and Key-Value Pairs**
 
 ```go
-// "github.com/openimsdk/tools/errs"
+// "github.com/Meikwei/go-tools/errs"
 err := errors.New("original error")
 wrappedErr := errs.WrapMsg(err, "problem occurred", "code", 404, "url", "webhook://example.com")
 // wrappedErr will contain the original error, call stack, and "problem occurred code=404, url=http://example.com"
@@ -477,7 +490,7 @@ wrappedErr := errs.WrapMsg(err, "problem occurred", "code", 404, "url", "webhook
 **Example 4: Key-Value Pairs Only**
 
 ```go
-// "github.com/openimsdk/tools/errs"
+// "github.com/Meikwei/go-tools/errs"
 err := errors.New("original error")
 wrappedErr := errs.WrapMsg(err, "", "user", "john_doe", "action", "login")
 // wrappedErr will contain the original error, call stack, and "user=john_doe, action=login"
@@ -485,8 +498,8 @@ wrappedErr := errs.WrapMsg(err, "", "user", "john_doe", "action", "login")
 
 > [!TIP] WThese examples demonstrate how the `errs.WrapMsg` function can flexibly handle error messages and context data, helping developers to more effectively track and debug their programs.
 
-
 ### Example 5: Dynamic Key-Value Pairs from Context
+
 Suppose we have some runtime context variables, such as a user ID and the type of operation being performed, and we want to include these variables in the error message. This can help with later debugging and identifying the specific environment of the issue.
 
 ```go

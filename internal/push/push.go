@@ -2,13 +2,14 @@ package push
 
 import (
 	"context"
+
+	"github.com/Meikwei/go-tools/db/redisutil"
+	"github.com/Meikwei/go-tools/discovery"
 	"github.com/openimsdk/open-im-server/v3/internal/push/offlinepush"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
 	pbpush "github.com/openimsdk/protocol/push"
-	"github.com/openimsdk/tools/db/redisutil"
-	"github.com/openimsdk/tools/discovery"
 	"google.golang.org/grpc"
 )
 

@@ -18,13 +18,13 @@ import (
 	"context"
 	"strings"
 
+	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/system/program"
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
 	"github.com/openimsdk/protocol/sdkws"
 	"github.com/openimsdk/protocol/user"
-	"github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/system/program"
-	"github.com/openimsdk/tools/utils/datautil"
 	"google.golang.org/grpc"
 )
 

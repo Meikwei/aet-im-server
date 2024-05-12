@@ -18,7 +18,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/openimsdk/tools/log"
+	"github.com/Meikwei/go-tools/log"
 )
 
 type Statistics struct {

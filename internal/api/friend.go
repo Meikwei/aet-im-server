@@ -18,7 +18,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
 	"github.com/openimsdk/protocol/friend"
-	"github.com/openimsdk/tools/a2r"
+	"github.com/Meikwei/go-tools/a2r"
 )
 
 type FriendApi rpcclient.Friend

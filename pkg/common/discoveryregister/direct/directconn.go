@@ -19,7 +19,7 @@ package direct
 //	"fmt"
 //
 //	config2 "github.com/openimsdk/open-im-server/v3/pkg/common/config"
-//	"github.com/openimsdk/tools/errs"
+//	"github.com/Meikwei/go-tools/errs"
 //	"google.golang.org/grpc"
 //	"google.golang.org/grpc/credentials/insecure"
 //)

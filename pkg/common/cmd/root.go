@@ -18,9 +18,9 @@ import (
 	"fmt"
 	"path/filepath"
 
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/log"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/log"
 	"github.com/spf13/cobra"
 )
 

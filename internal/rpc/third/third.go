@@ -17,21 +17,22 @@ package third
 import (
 	"context"
 	"fmt"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"time"
 
+	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
+
+	"github.com/Meikwei/go-tools/db/mongoutil"
+	"github.com/Meikwei/go-tools/db/redisutil"
+	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/go-tools/s3"
+	"github.com/Meikwei/go-tools/s3/cos"
+	"github.com/Meikwei/go-tools/s3/minio"
+	"github.com/Meikwei/go-tools/s3/oss"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/mgo"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
 	"github.com/openimsdk/protocol/third"
-	"github.com/openimsdk/tools/db/mongoutil"
-	"github.com/openimsdk/tools/db/redisutil"
-	"github.com/openimsdk/tools/discovery"
-	"github.com/openimsdk/tools/s3"
-	"github.com/openimsdk/tools/s3/cos"
-	"github.com/openimsdk/tools/s3/minio"
-	"github.com/openimsdk/tools/s3/oss"
 	"google.golang.org/grpc"
 )
 

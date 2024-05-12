@@ -16,18 +16,19 @@ package msg
 
 import (
 	"context"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
-	"github.com/openimsdk/tools/utils/datautil"
-	"github.com/openimsdk/tools/utils/encrypt"
-	"github.com/openimsdk/tools/utils/timeutil"
 	"math/rand"
 	"strconv"
 	"time"
 
+	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/go-tools/utils/encrypt"
+	"github.com/Meikwei/go-tools/utils/timeutil"
+	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
+
+	"github.com/Meikwei/go-tools/errs"
 	"github.com/openimsdk/protocol/constant"
 	"github.com/openimsdk/protocol/msg"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/errs"
 )
 
 var ExcludeContentType = []int{constant.HasReadReceipt}

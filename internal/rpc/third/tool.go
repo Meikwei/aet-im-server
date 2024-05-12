@@ -20,10 +20,10 @@ import (
 	"strings"
 	"unicode/utf8"
 
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/mcontext"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/protocol/third"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/mcontext"
 )
 
 func toPbMapArray(m map[string][]string) []*third.KeyValues {

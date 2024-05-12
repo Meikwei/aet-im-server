@@ -19,15 +19,15 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/Meikwei/go-tools/db/pagination"
+	"github.com/Meikwei/go-tools/db/tx"
+	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/mcontext"
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/tools/db/pagination"
-	"github.com/openimsdk/tools/db/tx"
-	"github.com/openimsdk/tools/errs"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/mcontext"
-	"github.com/openimsdk/tools/utils/datautil"
 )
 
 type FriendDatabase interface {
@@ -80,11 +80,11 @@ type FriendDatabase interface {
 type friendDatabase struct {
 	friend        relation.FriendModelInterface
 	friendRequest relation.FriendRequestModelInterface
-	tx            tx.Tx
+	tx            tx.MongoTx
 	cache         cache.FriendCache
 }
 
-func NewFriendDatabase(friend relation.FriendModelInterface, friendRequest relation.FriendRequestModelInterface, cache cache.FriendCache, tx tx.Tx) FriendDatabase {
+func NewFriendDatabase(friend relation.FriendModelInterface, friendRequest relation.FriendRequestModelInterface, cache cache.FriendCache, tx tx.MongoTx) FriendDatabase {
 	return &friendDatabase{friend: friend, friendRequest: friendRequest, cache: cache, tx: tx}
 }
 

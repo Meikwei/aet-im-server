@@ -18,12 +18,12 @@ import (
 	"context"
 
 	"github.com/IBM/sarama"
+	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/go-tools/mq/kafka"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
 	pbmsg "github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/tools/log"
-	"github.com/openimsdk/tools/mq/kafka"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -33,7 +33,7 @@ type OnlineHistoryMongoConsumerHandler struct {
 }
 
 func NewOnlineHistoryMongoConsumerHandler(kafkaConf *config.Kafka, database controller.CommonMsgDatabase) (*OnlineHistoryMongoConsumerHandler, error) {
-	historyConsumerGroup, err := kafka.NewMConsumerGroup(kafkaConf.Build(), kafkaConf.ToMongoGroupID, []string{kafkaConf.ToMongoTopic})
+	historyConsumerGroup, err := kafka.NewMConsumerGroup(kafkaConf.Build(), kafkaConf.ToMongoGroupID, []string{kafkaConf.ToMongoTopic},true)
 	if err != nil {
 		return nil, err
 	}

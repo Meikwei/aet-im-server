@@ -14,7 +14,7 @@
 
 package servererrs
 
-import "github.com/openimsdk/tools/errs"
+import "github.com/Meikwei/go-tools/errs"
 
 var (
 	ErrDatabase         = errs.NewCodeError(DatabaseError, "DatabaseError")

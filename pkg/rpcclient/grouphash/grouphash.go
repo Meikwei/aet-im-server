@@ -20,9 +20,9 @@ import (
 	"encoding/binary"
 	"encoding/json"
 
+	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/openimsdk/protocol/group"
 	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/tools/utils/datautil"
 )
 
 func NewGroupHashFromGroupClient(x group.GroupClient) *GroupHash {
