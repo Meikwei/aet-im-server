@@ -19,8 +19,8 @@ import (
 
 	"github.com/Meikwei/go-tools/discovery"
 	"github.com/Meikwei/go-tools/system/program"
-	"github.com/openimsdk/protocol/friend"
-	sdkws "github.com/openimsdk/protocol/sdkws"
+	"github.com/Meikwei/protocol/friend"
+	sdkws "github.com/Meikwei/protocol/sdkws"
 	"google.golang.org/grpc"
 )
 

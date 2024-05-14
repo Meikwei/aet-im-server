@@ -23,10 +23,10 @@ import (
 	"github.com/Meikwei/go-tools/mcontext"
 	"github.com/Meikwei/go-tools/mq/memamq"
 	"github.com/Meikwei/go-tools/utils/httputil"
+	"github.com/Meikwei/protocol/constant"
 	"github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
-	"github.com/openimsdk/protocol/constant"
 )
 
 type Client struct {

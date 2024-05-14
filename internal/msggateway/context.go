@@ -25,7 +25,7 @@ import (
 	"github.com/Meikwei/go-tools/utils/encrypt"
 	"github.com/Meikwei/go-tools/utils/stringutil"
 	"github.com/Meikwei/go-tools/utils/timeutil"
-	"github.com/openimsdk/protocol/constant"
+	"github.com/Meikwei/protocol/constant"
 )
 
 type UserConnContext struct {

@@ -19,10 +19,10 @@ import (
 
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/tokenverify"
+	"github.com/Meikwei/protocol/constant"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
-	"github.com/openimsdk/protocol/constant"
 )
 
 type AuthDatabase interface {

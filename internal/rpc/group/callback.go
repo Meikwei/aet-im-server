@@ -21,14 +21,14 @@ import (
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/mcontext"
 	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/group"
+	"github.com/Meikwei/protocol/wrapperspb"
 	"github.com/openimsdk/open-im-server/v3/pkg/apistruct"
 	"github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/group"
-	"github.com/openimsdk/protocol/wrapperspb"
 )
 
 // CallbackBeforeCreateGroup callback before create group.

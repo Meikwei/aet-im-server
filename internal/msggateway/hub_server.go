@@ -21,17 +21,17 @@ import (
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/mcontext"
+	"github.com/Meikwei/protocol/constant"
+	pbmsggateway "github.com/Meikwei/protocol/msggateway"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/startrpc"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/msggateway"
 	"google.golang.org/grpc"
 )
 
 func (s *Server) InitServer(ctx context.Context, config *Config, disCov discovery.SvcDiscoveryRegistry, server *grpc.Server) error {
 	s.LongConnServer.SetDiscoveryRegistry(disCov, config)
-	msggateway.RegisterMsgGatewayServer(server, s)
+	pbmsggateway.RegisterMsgGatewayServer(server, s)
 	return nil
 }
 
@@ -47,6 +47,7 @@ func (s *Server) Start(ctx context.Context, index int, conf *Config) error {
 }
 
 type Server struct {
+	pbmsggateway.UnimplementedMsgGatewayServer
 	rpcPort        int
 	prometheusPort int
 	LongConnServer LongConnServer
@@ -73,33 +74,33 @@ func NewServer(rpcPort int, proPort int, longConnServer LongConnServer, conf *Co
 
 func (s *Server) OnlinePushMsg(
 	context context.Context,
-	req *msggateway.OnlinePushMsgReq,
-) (*msggateway.OnlinePushMsgResp, error) {
+	req *pbmsggateway.OnlinePushMsgReq,
+) (*pbmsggateway.OnlinePushMsgResp, error) {
 	panic("implement me")
 }
 
 func (s *Server) GetUsersOnlineStatus(
 	ctx context.Context,
-	req *msggateway.GetUsersOnlineStatusReq,
-) (*msggateway.GetUsersOnlineStatusResp, error) {
+	req *pbmsggateway.GetUsersOnlineStatusReq,
+) (*pbmsggateway.GetUsersOnlineStatusResp, error) {
 	if !authverify.IsAppManagerUid(ctx, s.config.Share.IMAdminUserID) {
 		return nil, errs.ErrNoPermission.WrapMsg("only app manager")
 	}
-	var resp msggateway.GetUsersOnlineStatusResp
+	var resp pbmsggateway.GetUsersOnlineStatusResp
 	for _, userID := range req.UserIDs {
 		clients, ok := s.LongConnServer.GetUserAllCons(userID)
 		if !ok {
 			continue
 		}
 
-		uresp := new(msggateway.GetUsersOnlineStatusResp_SuccessResult)
+		uresp := new(pbmsggateway.GetUsersOnlineStatusResp_SuccessResult)
 		uresp.UserID = userID
 		for _, client := range clients {
 			if client == nil {
 				continue
 			}
 
-			ps := new(msggateway.GetUsersOnlineStatusResp_SuccessDetail)
+			ps := new(pbmsggateway.GetUsersOnlineStatusResp_SuccessDetail)
 			ps.Platform = constant.PlatformIDToName(client.PlatformID)
 			ps.Status = constant.OnlineStatus
 			ps.ConnID = client.ctx.GetConnID()
@@ -115,17 +116,17 @@ func (s *Server) GetUsersOnlineStatus(
 	return &resp, nil
 }
 
-func (s *Server) OnlineBatchPushOneMsg(ctx context.Context, req *msggateway.OnlineBatchPushOneMsgReq) (*msggateway.OnlineBatchPushOneMsgResp, error) {
+func (s *Server) OnlineBatchPushOneMsg(ctx context.Context, req *pbmsggateway.OnlineBatchPushOneMsgReq) (*pbmsggateway.OnlineBatchPushOneMsgResp, error) {
 	// todo implement
 	return nil, nil
 }
 
-func (s *Server) SuperGroupOnlineBatchPushOneMsg(ctx context.Context, req *msggateway.OnlineBatchPushOneMsgReq,
-) (*msggateway.OnlineBatchPushOneMsgResp, error) {
-	var singleUserResults []*msggateway.SingleMsgToUserResults
+func (s *Server) SuperGroupOnlineBatchPushOneMsg(ctx context.Context, req *pbmsggateway.OnlineBatchPushOneMsgReq,
+) (*pbmsggateway.OnlineBatchPushOneMsgResp, error) {
+	var singleUserResults []*pbmsggateway.SingleMsgToUserResults
 	for _, v := range req.PushToUserIDs {
-		var resp []*msggateway.SingleMsgToUserPlatform
-		results := &msggateway.SingleMsgToUserResults{
+		var resp []*pbmsggateway.SingleMsgToUserPlatform
+		results := &pbmsggateway.SingleMsgToUserResults{
 			UserID: v,
 		}
 		clients, ok := s.LongConnServer.GetUserAllCons(v)
@@ -142,7 +143,7 @@ func (s *Server) SuperGroupOnlineBatchPushOneMsg(ctx context.Context, req *msgga
 				continue
 			}
 
-			userPlatform := &msggateway.SingleMsgToUserPlatform{
+			userPlatform := &pbmsggateway.SingleMsgToUserPlatform{
 				RecvPlatFormID: int32(client.PlatformID),
 			}
 			if !client.IsBackground ||
@@ -166,15 +167,15 @@ func (s *Server) SuperGroupOnlineBatchPushOneMsg(ctx context.Context, req *msgga
 		singleUserResults = append(singleUserResults, results)
 	}
 
-	return &msggateway.OnlineBatchPushOneMsgResp{
+	return &pbmsggateway.OnlineBatchPushOneMsgResp{
 		SinglePushResult: singleUserResults,
 	}, nil
 }
 
 func (s *Server) KickUserOffline(
 	ctx context.Context,
-	req *msggateway.KickUserOfflineReq,
-) (*msggateway.KickUserOfflineResp, error) {
+	req *pbmsggateway.KickUserOfflineReq,
+) (*pbmsggateway.KickUserOfflineResp, error) {
 	for _, v := range req.KickUserIDList {
 		clients, _, ok := s.LongConnServer.GetUserPlatformCons(v, int(req.PlatformID))
 		if !ok {
@@ -191,10 +192,10 @@ func (s *Server) KickUserOffline(
 		continue
 	}
 
-	return &msggateway.KickUserOfflineResp{}, nil
+	return &pbmsggateway.KickUserOfflineResp{}, nil
 }
 
-func (s *Server) MultiTerminalLoginCheck(ctx context.Context, req *msggateway.MultiTerminalLoginCheckReq) (*msggateway.MultiTerminalLoginCheckResp, error) {
+func (s *Server) MultiTerminalLoginCheck(ctx context.Context, req *pbmsggateway.MultiTerminalLoginCheckReq) (*pbmsggateway.MultiTerminalLoginCheckResp, error) {
 	if oldClients, userOK, clientOK := s.LongConnServer.GetUserPlatformCons(req.UserID, int(req.PlatformID)); userOK {
 		tempUserCtx := newTempContext()
 		tempUserCtx.SetToken(req.Token)
@@ -210,5 +211,5 @@ func (s *Server) MultiTerminalLoginCheck(ctx context.Context, req *msggateway.Mu
 		}
 		s.LongConnServer.SetKickHandlerInfo(i)
 	}
-	return &msggateway.MultiTerminalLoginCheckResp{}, nil
+	return &pbmsggateway.MultiTerminalLoginCheckResp{}, nil
 }

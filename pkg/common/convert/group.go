@@ -17,9 +17,9 @@ package convert
 import (
 	"time"
 
+	pbgroup "github.com/Meikwei/protocol/group"
+	sdkws "github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
-	pbgroup "github.com/openimsdk/protocol/group"
-	sdkws "github.com/openimsdk/protocol/sdkws"
 )
 
 func Db2PbGroupInfo(m *relation.GroupModel, ownerUserID string, memberCount uint32) *sdkws.GroupInfo {

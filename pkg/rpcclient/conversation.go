@@ -21,7 +21,7 @@ import (
 	"github.com/Meikwei/go-tools/discovery"
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/system/program"
-	pbconversation "github.com/openimsdk/protocol/conversation"
+	pbconversation "github.com/Meikwei/protocol/conversation"
 	"google.golang.org/grpc"
 )
 

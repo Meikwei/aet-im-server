@@ -16,8 +16,8 @@ package convert
 
 import (
 	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/protocol/conversation"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
-	"github.com/openimsdk/protocol/conversation"
 )
 
 func ConversationDB2Pb(conversationDB *relation.ConversationModel) *conversation.Conversation {

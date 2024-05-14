@@ -26,6 +26,9 @@ import (
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/protocol/constant"
+	pbconversation "github.com/Meikwei/protocol/conversation"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
@@ -33,13 +36,11 @@ import (
 	tablerelation "github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/constant"
-	pbconversation "github.com/openimsdk/protocol/conversation"
-	"github.com/openimsdk/protocol/sdkws"
 	"google.golang.org/grpc"
 )
 
 type conversationServer struct {
+	pbconversation.UnimplementedConversationServer
 	msgRpcClient                   *rpcclient.MessageRpcClient
 	user                           *rpcclient.UserRpcClient
 	groupRpcClient                 *rpcclient.GroupRpcClient

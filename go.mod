@@ -13,7 +13,6 @@ require (
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible // indirect
 	github.com/mitchellh/mapstructure v1.5.0
-	github.com/openimsdk/protocol v0.0.65
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/prometheus/client_golang v1.18.0
 	github.com/stretchr/testify v1.9.0
@@ -28,6 +27,7 @@ require github.com/google/uuid v1.6.0
 
 require (
 	github.com/IBM/sarama v1.43.2
+	github.com/Meikwei/protocol v0.0.3
 	github.com/fatih/color v1.16.0
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/hashicorp/golang-lru/v2 v2.0.7
@@ -112,6 +112,7 @@ require (
 	github.com/mozillazg/go-httpheader v0.4.0 // indirect
 	github.com/onsi/ginkgo v1.16.5 // indirect
 	github.com/onsi/gomega v1.18.1 // indirect
+	github.com/openimsdk/protocol v0.0.65 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
 	github.com/pierrec/lz4/v4 v4.1.21 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect

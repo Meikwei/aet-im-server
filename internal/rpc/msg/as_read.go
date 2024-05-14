@@ -20,10 +20,10 @@ import (
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/msg"
+	"github.com/Meikwei/protocol/sdkws"
 	cbapi "github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
 	"github.com/redis/go-redis/v9"
 )
 

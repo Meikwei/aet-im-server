@@ -27,10 +27,10 @@ import (
 	"github.com/Meikwei/go-tools/utils/idutil"
 	"github.com/Meikwei/go-tools/utils/jsonutil"
 	"github.com/Meikwei/go-tools/utils/timeutil"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/msg"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/proto"
 )

@@ -19,7 +19,7 @@ import (
 	"time"
 
 	"github.com/Meikwei/go-tools/errs"
-	pbuser "github.com/openimsdk/protocol/user"
+	pbuser "github.com/Meikwei/protocol/user"
 )
 
 func (s *userServer) UserRegisterCount(ctx context.Context, req *pbuser.UserRegisterCountReq) (*pbuser.UserRegisterCountResp, error) {

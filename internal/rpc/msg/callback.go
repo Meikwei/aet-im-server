@@ -21,11 +21,11 @@ import (
 
 	"github.com/Meikwei/go-tools/mcontext"
 	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/protocol/constant"
+	pbchat "github.com/Meikwei/protocol/msg"
+	"github.com/Meikwei/protocol/sdkws"
 	cbapi "github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/protocol/constant"
-	pbchat "github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
 	"google.golang.org/protobuf/proto"
 )
 

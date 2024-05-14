@@ -15,7 +15,7 @@
 package apistruct
 
 import (
-	sdkws "github.com/openimsdk/protocol/sdkws"
+	sdkws "github.com/Meikwei/protocol/sdkws"
 )
 
 // SendMsg defines the structure for sending messages with various metadata.

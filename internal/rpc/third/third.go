@@ -28,15 +28,16 @@ import (
 	"github.com/Meikwei/go-tools/s3/cos"
 	"github.com/Meikwei/go-tools/s3/minio"
 	"github.com/Meikwei/go-tools/s3/oss"
+	pbthird "github.com/Meikwei/protocol/third"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/mgo"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/third"
 	"google.golang.org/grpc"
 )
 
 type thirdServer struct {
+	pbthird.UnimplementedThirdServer
 	thirdDatabase controller.ThirdDatabase
 	s3dataBase    controller.S3Database
 	userRpcClient rpcclient.UserRpcClient
@@ -88,7 +89,7 @@ func Start(ctx context.Context, config *Config, client discovery.SvcDiscoveryReg
 		return err
 	}
 	cache.InitLocalCache(&config.LocalCacheConfig)
-	third.RegisterThirdServer(server, &thirdServer{
+	pbthird.RegisterThirdServer(server, &thirdServer{
 		thirdDatabase: controller.NewThirdDatabase(cache.NewThirdCache(rdb), logdb),
 		userRpcClient: rpcclient.NewUserRpcClient(client, config.Share.RpcRegisterName.User, config.Share.IMAdminUserID),
 		s3dataBase:    controller.NewS3Database(rdb, o, s3db),
@@ -98,18 +99,18 @@ func Start(ctx context.Context, config *Config, client discovery.SvcDiscoveryReg
 	return nil
 }
 
-func (t *thirdServer) FcmUpdateToken(ctx context.Context, req *third.FcmUpdateTokenReq) (resp *third.FcmUpdateTokenResp, err error) {
+func (t *thirdServer) FcmUpdateToken(ctx context.Context, req *pbthird.FcmUpdateTokenReq) (resp *pbthird.FcmUpdateTokenResp, err error) {
 	err = t.thirdDatabase.FcmUpdateToken(ctx, req.Account, int(req.PlatformID), req.FcmToken, req.ExpireTime)
 	if err != nil {
 		return nil, err
 	}
-	return &third.FcmUpdateTokenResp{}, nil
+	return &pbthird.FcmUpdateTokenResp{}, nil
 }
 
-func (t *thirdServer) SetAppBadge(ctx context.Context, req *third.SetAppBadgeReq) (resp *third.SetAppBadgeResp, err error) {
+func (t *thirdServer) SetAppBadge(ctx context.Context, req *pbthird.SetAppBadgeReq) (resp *pbthird.SetAppBadgeResp, err error) {
 	err = t.thirdDatabase.SetAppBadge(ctx, req.UserID, int(req.AppUnreadCount))
 	if err != nil {
 		return nil, err
 	}
-	return &third.SetAppBadgeResp{}, nil
+	return &pbthird.SetAppBadgeResp{}, nil
 }

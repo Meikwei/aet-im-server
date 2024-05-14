@@ -21,10 +21,10 @@ import (
 	"github.com/Meikwei/go-tools/discovery"
 	"github.com/Meikwei/go-tools/system/program"
 	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/group"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/group"
-	"github.com/openimsdk/protocol/sdkws"
 )
 
 type Group struct {

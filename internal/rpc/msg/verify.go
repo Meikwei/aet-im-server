@@ -26,9 +26,9 @@ import (
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
 
 	"github.com/Meikwei/go-tools/errs"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/msg"
+	"github.com/Meikwei/protocol/sdkws"
 )
 
 var ExcludeContentType = []int{constant.HasReadReceipt}

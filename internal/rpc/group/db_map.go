@@ -19,8 +19,8 @@ import (
 	"time"
 
 	"github.com/Meikwei/go-tools/mcontext"
-	pbgroup "github.com/openimsdk/protocol/group"
-	"github.com/openimsdk/protocol/sdkws"
+	pbgroup "github.com/Meikwei/protocol/group"
+	"github.com/Meikwei/protocol/sdkws"
 )
 
 func UpdateGroupInfoMap(ctx context.Context, group *sdkws.GroupInfoForSet) map[string]any {

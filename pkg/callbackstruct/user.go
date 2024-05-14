@@ -15,8 +15,8 @@
 package callbackstruct
 
 import (
-	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/protocol/wrapperspb"
+	"github.com/Meikwei/protocol/sdkws"
+	"github.com/Meikwei/protocol/wrapperspb"
 )
 
 type CallbackBeforeUpdateUserInfoReq struct {

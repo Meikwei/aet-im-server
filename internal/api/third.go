@@ -27,9 +27,9 @@ import (
 	"github.com/Meikwei/go-tools/a2r"
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/mcontext"
+	"github.com/Meikwei/protocol/third"
 	"github.com/gin-gonic/gin"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/third"
 )
 
 type ThirdApi rpcclient.Third

@@ -21,8 +21,8 @@ import (
 
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/field"
+	"github.com/Meikwei/protocol/constant"
 	"github.com/openimsdk/open-im-server/v3/pkg/msgprocessor"
-	"github.com/openimsdk/protocol/constant"
 	"gopkg.in/yaml.v3"
 )
 

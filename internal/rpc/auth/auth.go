@@ -26,19 +26,20 @@ import (
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/mcontext"
 	"github.com/Meikwei/go-tools/tokenverify"
+	pbauth "github.com/Meikwei/protocol/auth"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/msggateway"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	pbauth "github.com/openimsdk/protocol/auth"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/msggateway"
 	"google.golang.org/grpc"
 )
 
 type authServer struct {
+	pbauth.UnimplementedAuthServer
 	authDatabase   controller.AuthDatabase
 	userRpcClient  *rpcclient.UserRpcClient
 	RegisterCenter discovery.SvcDiscoveryRegistry

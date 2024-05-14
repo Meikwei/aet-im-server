@@ -19,11 +19,11 @@ import (
 
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/utils/timeutil"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/conversation"
+	"github.com/Meikwei/protocol/msg"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/conversation"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
 )
 
 func (m *msgServer) getMinSeqs(maxSeqs map[string]int64) map[string]int64 {

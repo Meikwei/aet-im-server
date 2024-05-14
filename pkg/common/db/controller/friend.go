@@ -25,9 +25,9 @@ import (
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/mcontext"
 	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/protocol/constant"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
-	"github.com/openimsdk/protocol/constant"
 )
 
 type FriendDatabase interface {

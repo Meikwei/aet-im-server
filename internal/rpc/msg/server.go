@@ -19,29 +19,30 @@ import (
 
 	"github.com/Meikwei/go-tools/db/mongoutil"
 	"github.com/Meikwei/go-tools/db/redisutil"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
-	"github.com/openimsdk/protocol/sdkws"
 
 	"github.com/Meikwei/go-tools/discovery"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/conversation"
+	pbmsg "github.com/Meikwei/protocol/msg"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/mgo"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpccache"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/conversation"
-	"github.com/openimsdk/protocol/msg"
 	"google.golang.org/grpc"
 )
 
-type MessageInterceptorFunc func(ctx context.Context, globalConfig *Config, req *msg.SendMsgReq) (*sdkws.MsgData, error)
+type MessageInterceptorFunc func(ctx context.Context, globalConfig *Config, req *pbmsg.SendMsgReq) (*sdkws.MsgData, error)
 type (
 	// MessageInterceptorChain defines a chain of message interceptor functions.
 	MessageInterceptorChain []MessageInterceptorFunc
 
 	// MsgServer encapsulates dependencies required for message handling.
 	msgServer struct {
+		pbmsg.UnimplementedMsgServer
 		RegisterCenter         discovery.SvcDiscoveryRegistry   // Service discovery registry for service registration.
 		MsgDatabase            controller.CommonMsgDatabase     // Interface for message database operations.
 		Conversation           *rpcclient.ConversationRpcClient // RPC client for conversation service.
@@ -110,7 +111,7 @@ func Start(ctx context.Context, config *Config, client discovery.SvcDiscoveryReg
 	}
 
 	s.notificationSender = rpcclient.NewNotificationSender(&config.NotificationConfig, rpcclient.WithLocalSendMsg(s.SendMsg))
-	msg.RegisterMsgServer(server, s)
+	pbmsg.RegisterMsgServer(server, s)
 	return nil
 }
 

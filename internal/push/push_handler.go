@@ -21,6 +21,7 @@ import (
 	"github.com/Meikwei/go-tools/discovery"
 	"github.com/Meikwei/go-tools/mcontext"
 	"github.com/Meikwei/go-tools/utils/jsonutil"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/internal/push/offlinepush"
 	"github.com/openimsdk/open-im-server/v3/internal/push/offlinepush/options"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
@@ -29,7 +30,6 @@ import (
 	"github.com/openimsdk/open-im-server/v3/pkg/rpccache"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
 	"github.com/openimsdk/open-im-server/v3/pkg/util/conversationutil"
-	"github.com/openimsdk/protocol/sdkws"
 	"github.com/redis/go-redis/v9"
 
 	"github.com/IBM/sarama"
@@ -37,9 +37,9 @@ import (
 	"github.com/Meikwei/go-tools/mq/kafka"
 	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/Meikwei/go-tools/utils/timeutil"
-	"github.com/openimsdk/protocol/constant"
-	pbchat "github.com/openimsdk/protocol/msg"
-	pbpush "github.com/openimsdk/protocol/push"
+	"github.com/Meikwei/protocol/constant"
+	pbchat "github.com/Meikwei/protocol/msg"
+	pbpush "github.com/Meikwei/protocol/push"
 	"google.golang.org/protobuf/proto"
 )
 

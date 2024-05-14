@@ -19,8 +19,8 @@ import (
 	"strings"
 
 	"github.com/Meikwei/go-tools/errs"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/sdkws"
 	"google.golang.org/protobuf/proto"
 )
 

@@ -20,8 +20,8 @@ import (
 	"time"
 
 	"github.com/Meikwei/go-tools/errs"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/Meikwei/protocol/msg"
+	"github.com/Meikwei/protocol/sdkws"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 

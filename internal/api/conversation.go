@@ -15,10 +15,10 @@
 package api
 
 import (
+	"github.com/Meikwei/go-tools/a2r"
+	"github.com/Meikwei/protocol/conversation"
 	"github.com/gin-gonic/gin"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/conversation"
-	"github.com/Meikwei/go-tools/a2r"
 )
 
 type ConversationApi rpcclient.Conversation

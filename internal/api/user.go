@@ -19,11 +19,11 @@ import (
 	"github.com/Meikwei/go-tools/apiresp"
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/msggateway"
+	"github.com/Meikwei/protocol/user"
 	"github.com/gin-gonic/gin"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/msggateway"
-	"github.com/openimsdk/protocol/user"
 )
 
 type UserApi rpcclient.User

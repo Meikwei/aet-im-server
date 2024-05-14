@@ -16,9 +16,9 @@ package api
 
 import (
 	"github.com/Meikwei/go-tools/a2r"
+	"github.com/Meikwei/protocol/user"
 	"github.com/gin-gonic/gin"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/user"
 )
 
 type StatisticsApi rpcclient.User

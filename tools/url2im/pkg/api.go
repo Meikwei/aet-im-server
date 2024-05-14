@@ -23,9 +23,9 @@ import (
 	"net/http"
 
 	"github.com/Meikwei/go-tools/errs"
-	"github.com/openimsdk/protocol/auth"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/third"
+	"github.com/Meikwei/protocol/auth"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/third"
 )
 
 type Api struct {

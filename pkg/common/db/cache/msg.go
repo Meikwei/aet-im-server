@@ -23,10 +23,10 @@ import (
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/utils/stringutil"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/gogo/protobuf/jsonpb"
 	"github.com/openimsdk/open-im-server/v3/pkg/msgprocessor"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/sdkws"
 	"github.com/redis/go-redis/v9"
 	"golang.org/x/sync/errgroup"
 )

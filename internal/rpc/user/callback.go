@@ -20,9 +20,9 @@ import (
 	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
 
+	pbuser "github.com/Meikwei/protocol/user"
 	cbapi "github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	pbuser "github.com/openimsdk/protocol/user"
 )
 
 func (s *userServer) webhookBeforeUpdateUserInfo(ctx context.Context, before *config.BeforeConfig, req *pbuser.UpdateUserInfoReq) error {

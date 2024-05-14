@@ -19,10 +19,10 @@ import (
 	"time"
 
 	"github.com/Meikwei/go-tools/mcontext"
+	pbfriend "github.com/Meikwei/protocol/friend"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
-	pbfriend "github.com/openimsdk/protocol/friend"
 )
 
 func (s *friendServer) GetPaginationBlacks(ctx context.Context, req *pbfriend.GetPaginationBlacksReq) (resp *pbfriend.GetPaginationBlacksResp, err error) {

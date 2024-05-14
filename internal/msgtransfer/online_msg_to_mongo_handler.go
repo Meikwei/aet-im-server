@@ -20,10 +20,10 @@ import (
 	"github.com/IBM/sarama"
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/mq/kafka"
+	pbmsg "github.com/Meikwei/protocol/msg"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
-	pbmsg "github.com/openimsdk/protocol/msg"
 	"google.golang.org/protobuf/proto"
 )
 

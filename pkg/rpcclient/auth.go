@@ -19,8 +19,8 @@ import (
 
 	"github.com/Meikwei/go-tools/discovery"
 	"github.com/Meikwei/go-tools/system/program"
-	"github.com/openimsdk/protocol/auth"
-	pbAuth "github.com/openimsdk/protocol/auth"
+	"github.com/Meikwei/protocol/auth"
+	pbAuth "github.com/Meikwei/protocol/auth"
 	"google.golang.org/grpc"
 )
 

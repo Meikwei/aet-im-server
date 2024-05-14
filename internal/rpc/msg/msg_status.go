@@ -18,8 +18,8 @@ import (
 	"context"
 
 	"github.com/Meikwei/go-tools/mcontext"
-	"github.com/openimsdk/protocol/constant"
-	pbmsg "github.com/openimsdk/protocol/msg"
+	"github.com/Meikwei/protocol/constant"
+	pbmsg "github.com/Meikwei/protocol/msg"
 )
 
 func (m *msgServer) SetSendMsgStatus(ctx context.Context, req *pbmsg.SetSendMsgStatusReq) (*pbmsg.SetSendMsgStatusResp, error) {

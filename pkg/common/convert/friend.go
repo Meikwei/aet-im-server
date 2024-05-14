@@ -20,8 +20,8 @@ import (
 
 	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/Meikwei/go-tools/utils/timeutil"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
-	"github.com/openimsdk/protocol/sdkws"
 )
 
 func FriendPb2DB(friend *sdkws.FriendInfo) *relation.FriendModel {

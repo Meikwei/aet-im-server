@@ -22,9 +22,9 @@ import (
 
 	"github.com/Meikwei/go-tools/mcontext"
 	"github.com/Meikwei/go-tools/mw"
+	"github.com/Meikwei/protocol/msg"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	kdisc "github.com/openimsdk/open-im-server/v3/pkg/common/discoveryregister"
-	"github.com/openimsdk/protocol/msg"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 

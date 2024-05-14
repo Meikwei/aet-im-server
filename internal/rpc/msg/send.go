@@ -22,14 +22,14 @@ import (
 	"github.com/Meikwei/go-tools/mcontext"
 	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/Meikwei/go-tools/utils/stringutil"
+	"github.com/Meikwei/protocol/constant"
+	pbconversation "github.com/Meikwei/protocol/conversation"
+	pbmsg "github.com/Meikwei/protocol/msg"
+	"github.com/Meikwei/protocol/sdkws"
+	"github.com/Meikwei/protocol/wrapperspb"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
 	"github.com/openimsdk/open-im-server/v3/pkg/msgprocessor"
 	"github.com/openimsdk/open-im-server/v3/pkg/util/conversationutil"
-	"github.com/openimsdk/protocol/constant"
-	pbconversation "github.com/openimsdk/protocol/conversation"
-	pbmsg "github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/protocol/wrapperspb"
 )
 
 func (m *msgServer) SendMsg(ctx context.Context, req *pbmsg.SendMsgReq) (*pbmsg.SendMsgResp, error) {

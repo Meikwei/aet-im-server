@@ -17,7 +17,7 @@ package body
 import (
 	"github.com/Meikwei/go-tools/errs"
 
-	"github.com/openimsdk/protocol/constant"
+	"github.com/Meikwei/protocol/constant"
 )
 
 const (

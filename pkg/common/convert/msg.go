@@ -15,9 +15,9 @@
 package convert
 
 import (
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/sdkws"
 )
 
 func MsgPb2DB(msg *sdkws.MsgData) *relation.MsgDataModel {

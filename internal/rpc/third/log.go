@@ -22,11 +22,11 @@ import (
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/Meikwei/go-tools/utils/stringutil"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/third"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	relationtb "github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/third"
 )
 
 func genLogID() string {

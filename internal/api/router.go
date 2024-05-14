@@ -8,12 +8,12 @@ import (
 	"github.com/Meikwei/go-tools/discovery"
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/mw"
+	"github.com/Meikwei/protocol/constant"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator/v10"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/constant"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

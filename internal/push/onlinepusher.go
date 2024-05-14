@@ -7,8 +7,8 @@ import (
 	"github.com/Meikwei/go-tools/discovery"
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/utils/datautil"
-	"github.com/openimsdk/protocol/msggateway"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/Meikwei/protocol/msggateway"
+	"github.com/Meikwei/protocol/sdkws"
 	"golang.org/x/sync/errgroup"
 	"google.golang.org/grpc"
 )

@@ -20,7 +20,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/assert"
 )

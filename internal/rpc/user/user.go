@@ -31,6 +31,9 @@ import (
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/sdkws"
+	pbuser "github.com/Meikwei/protocol/user"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
@@ -40,13 +43,11 @@ import (
 	tablerelation "github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/sdkws"
-	pbuser "github.com/openimsdk/protocol/user"
 	"google.golang.org/grpc"
 )
 
 type userServer struct {
+	pbuser.UnimplementedUserServer
 	db                       controller.UserDatabase
 	friendNotificationSender *friend.FriendNotificationSender
 	userNotificationSender   *UserNotificationSender

@@ -19,7 +19,7 @@ import (
 	"time"
 
 	"github.com/Meikwei/go-tools/db/pagination"
-	"github.com/openimsdk/protocol/user"
+	"github.com/Meikwei/protocol/user"
 )
 
 type UserModel struct {

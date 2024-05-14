@@ -23,19 +23,19 @@ import (
 	"time"
 
 	"github.com/Meikwei/go-tools/mcontext"
+	pbAuth "github.com/Meikwei/protocol/auth"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
-	pbAuth "github.com/openimsdk/protocol/auth"
 
 	"github.com/Meikwei/go-tools/discovery"
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/log"
 	"github.com/Meikwei/go-tools/utils/stringutil"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/msggateway"
 	"github.com/go-playground/validator/v10"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/msggateway"
 	"golang.org/x/sync/errgroup"
 )
 

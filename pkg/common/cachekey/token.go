@@ -1,6 +1,6 @@
 package cachekey
 
-import "github.com/openimsdk/protocol/constant"
+import "github.com/Meikwei/protocol/constant"
 
 const (
 	UidPidToken = "UID_PID_TOKEN_STATUS:"

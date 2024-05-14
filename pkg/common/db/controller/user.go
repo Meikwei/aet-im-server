@@ -23,7 +23,7 @@ import (
 	"github.com/Meikwei/go-tools/utils/datautil"
 
 	"github.com/Meikwei/go-tools/errs"
-	"github.com/openimsdk/protocol/user"
+	"github.com/Meikwei/protocol/user"
 
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"

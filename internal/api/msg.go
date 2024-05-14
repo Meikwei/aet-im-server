@@ -15,16 +15,6 @@
 package api
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/go-playground/validator/v10"
-	"github.com/mitchellh/mapstructure"
-	"github.com/openimsdk/open-im-server/v3/pkg/apistruct"
-	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
 	"github.com/Meikwei/go-tools/a2r"
 	"github.com/Meikwei/go-tools/apiresp"
 	"github.com/Meikwei/go-tools/errs"
@@ -34,6 +24,16 @@ import (
 	"github.com/Meikwei/go-tools/utils/idutil"
 	"github.com/Meikwei/go-tools/utils/jsonutil"
 	"github.com/Meikwei/go-tools/utils/timeutil"
+	"github.com/Meikwei/protocol/constant"
+	"github.com/Meikwei/protocol/msg"
+	"github.com/Meikwei/protocol/sdkws"
+	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
+	"github.com/mitchellh/mapstructure"
+	"github.com/openimsdk/open-im-server/v3/pkg/apistruct"
+	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
+	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
+	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
 )
 
 type MessageApi struct {

@@ -35,7 +35,7 @@ import (
 
 	"github.com/Meikwei/go-tools/errs"
 
-	"github.com/openimsdk/protocol/third"
+	"github.com/Meikwei/protocol/third"
 )
 
 type Upload struct {

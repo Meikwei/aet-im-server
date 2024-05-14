@@ -18,15 +18,15 @@ import (
 	"context"
 
 	"github.com/Meikwei/go-tools/mcontext"
+	"github.com/Meikwei/protocol/constant"
+	pbfriend "github.com/Meikwei/protocol/friend"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/controller"
 	relationtb "github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient/notification"
-	"github.com/openimsdk/protocol/constant"
-	pbfriend "github.com/openimsdk/protocol/friend"
-	"github.com/openimsdk/protocol/sdkws"
 )
 
 type FriendNotificationSender struct {

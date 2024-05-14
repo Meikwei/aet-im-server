@@ -25,6 +25,9 @@ import (
 	"github.com/Meikwei/go-tools/discovery"
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/utils/datautil"
+	"github.com/Meikwei/protocol/constant"
+	pbfriend "github.com/Meikwei/protocol/friend"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
@@ -33,13 +36,11 @@ import (
 	tablerelation "github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/constant"
-	pbfriend "github.com/openimsdk/protocol/friend"
-	"github.com/openimsdk/protocol/sdkws"
 	"google.golang.org/grpc"
 )
 
 type friendServer struct {
+	pbfriend.UnimplementedFriendServer
 	friendDatabase        controller.FriendDatabase
 	blackDatabase         controller.BlackDatabase
 	userRpcClient         *rpcclient.UserRpcClient

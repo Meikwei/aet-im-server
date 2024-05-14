@@ -19,11 +19,11 @@ import (
 
 	"github.com/Meikwei/go-tools/errs"
 	"github.com/Meikwei/go-tools/log"
+	"github.com/Meikwei/protocol/sdkws"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/cachekey"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/localcache"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
-	"github.com/openimsdk/protocol/sdkws"
 	"github.com/redis/go-redis/v9"
 )
 

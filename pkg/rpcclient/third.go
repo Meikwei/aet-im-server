@@ -19,7 +19,7 @@ import (
 
 	"github.com/Meikwei/go-tools/discovery"
 	"github.com/Meikwei/go-tools/system/program"
-	"github.com/openimsdk/protocol/third"
+	"github.com/Meikwei/protocol/third"
 	"google.golang.org/grpc"
 )
 

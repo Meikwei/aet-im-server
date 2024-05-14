@@ -23,9 +23,9 @@ import (
 	firebase "firebase.google.com/go"
 	"firebase.google.com/go/messaging"
 	"github.com/Meikwei/go-tools/errs"
+	"github.com/Meikwei/protocol/constant"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/db/cache"
-	"github.com/openimsdk/protocol/constant"
 	"github.com/redis/go-redis/v9"
 	"google.golang.org/api/option"
 )

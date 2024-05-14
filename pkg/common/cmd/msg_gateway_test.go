@@ -20,7 +20,7 @@ import (
 
 	"github.com/Meikwei/go-tools/apiresp"
 	"github.com/Meikwei/go-tools/utils/jsonutil"
-	"github.com/openimsdk/protocol/auth"
+	"github.com/Meikwei/protocol/auth"
 	"github.com/stretchr/testify/mock"
 )
 

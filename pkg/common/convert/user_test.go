@@ -18,7 +18,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/Meikwei/protocol/sdkws"
 
 	relationtb "github.com/openimsdk/open-im-server/v3/pkg/common/db/table/relation"
 )

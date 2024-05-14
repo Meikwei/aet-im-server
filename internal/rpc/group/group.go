@@ -36,6 +36,11 @@ import (
 	"github.com/Meikwei/go-tools/mw/specialerror"
 	"github.com/Meikwei/go-tools/utils/datautil"
 	"github.com/Meikwei/go-tools/utils/encrypt"
+	"github.com/Meikwei/protocol/constant"
+	pbconversation "github.com/Meikwei/protocol/conversation"
+	pbgroup "github.com/Meikwei/protocol/group"
+	"github.com/Meikwei/protocol/sdkws"
+	"github.com/Meikwei/protocol/wrapperspb"
 	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
 	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
@@ -47,15 +52,11 @@ import (
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient/grouphash"
 	"github.com/openimsdk/open-im-server/v3/pkg/rpcclient/notification"
-	"github.com/openimsdk/protocol/constant"
-	pbconversation "github.com/openimsdk/protocol/conversation"
-	pbgroup "github.com/openimsdk/protocol/group"
-	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/protocol/wrapperspb"
 	"google.golang.org/grpc"
 )
 
 type groupServer struct {
+	pbgroup.UnimplementedGroupServer
 	db                    controller.GroupDatabase
 	user                  rpcclient.UserRpcClient
 	notification          *GroupNotificationSender
