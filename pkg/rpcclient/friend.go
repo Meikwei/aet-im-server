@@ -30,11 +30,19 @@ type Friend struct {
 	discov discovery.SvcDiscoveryRegistry
 }
 
+// NewFriend 创建一个 Friend 实例。
+// 
+// param discov: 服务发现注册接口，用于获取远程服务的连接。
+// param rpcRegisterName: RPC服务的注册名称，用于标识具体的服务。
+// return: 返回初始化好的 Friend 指针。
 func NewFriend(discov discovery.SvcDiscoveryRegistry, rpcRegisterName string) *Friend {
+    // 通过服务发现获取与指定RPC服务的连接
 	conn, err := discov.GetConn(context.Background(), rpcRegisterName)
 	if err != nil {
+		// 如果获取连接失败，则退出程序
 		program.ExitWithError(err)
 	}
+	// 根据连接创建 Friend 客户端
 	client := friend.NewFriendClient(conn)
 	return &Friend{discov: discov, conn: conn, Client: client}
 }

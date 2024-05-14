@@ -30,11 +30,19 @@ const (
 	directConst    = "direct"
 )
 
-// NewDiscoveryRegister creates a new service discovery and registry client based on the provided environment type.
+// NewDiscoveryRegister 创建一个基于提供的环境类型的服务发现和注册客户端。
+//
+// 参数:
+// - zookeeperConfig: 包含ZooKeeper配置信息的结构体指针。
+// - share: 包含共享配置信息的结构体指针。
+//
+// 返回值:
+// - discovery.SvcDiscoveryRegistry: 实现了服务发现和注册接口的客户端实例。
+// - error: 在创建过程中遇到错误时返回的错误信息。
 func NewDiscoveryRegister(zookeeperConfig *config.ZooKeeper, share *config.Share) (discovery.SvcDiscoveryRegistry, error) {
 	switch share.Env {
 	case zookeeperConst:
-
+		// 创建一个ZooKeeper客户端
 		return zookeeper.NewZkClient(
 			zookeeperConfig.Address,
 			zookeeperConfig.Schema,
@@ -44,10 +52,13 @@ func NewDiscoveryRegister(zookeeperConfig *config.ZooKeeper, share *config.Share
 			zookeeper.WithTimeout(10),
 		)
 	case kubenetesConst:
+		// 创建一个Kubernetes服务发现注册客户端
 		return kubernetes.NewK8sDiscoveryRegister(share.RpcRegisterName.MessageGateway)
 	case directConst:
+		// 创建一个直接连接客户端（代码未完整展示）
 		//return direct.NewConnDirect(config)
 	default:
+		// 对于不支持的服务发现类型，返回错误
 		return nil, errs.New("unsupported discovery type", "type", share.Env).Wrap()
 	}
 	return nil, nil

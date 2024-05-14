@@ -24,11 +24,22 @@ import (
 	"google.golang.org/grpc"
 )
 
+// NewAuth 创建一个新的Auth实例。
+//
+// 参数:
+// discov - 服务发现注册接口，用于获取与RPC服务的连接。
+// rpcRegisterName - RPC服务的注册名称，用于标识特定的服务实例。
+//
+// 返回值:
+// 返回一个初始化好的Auth指针。
 func NewAuth(discov discovery.SvcDiscoveryRegistry, rpcRegisterName string) *Auth {
+    // 通过服务发现获取与指定RPC服务的连接
 	conn, err := discov.GetConn(context.Background(), rpcRegisterName)
 	if err != nil {
+		// 如果获取连接失败，则程序异常退出
 		program.ExitWithError(err)
 	}
+	// 基于获取的连接，创建Auth客户端实例
 	client := auth.NewAuthClient(conn)
 	return &Auth{discov: discov, conn: conn, Client: client}
 }

@@ -37,14 +37,29 @@ type User struct {
 	imAdminUserID         []string
 }
 
-// NewUser initializes and returns a User instance based on the provided service discovery registry.
+// NewUser 使用提供的服务发现注册表初始化并返回一个新的User实例。
+// 它通过注册表连接到UserService，创建用于用户操作的客户端，
+// 然后返回指向新创建的User实例的指针。
+//
+// 参数:
+// - discov: 一个discovery.SvcDiscoveryRegistry实例，用于发现并连接到UserService。
+// - rpcRegisterName: 用于注册或发现的RPC服务名称。用于标识UserService。
+// - messageGateWayRpcName: 消息网关的RPC服务名称。用于与消息网关通信。
+// - imAdminUserID: 一个字符串切片，表示管理员用户的ID。
+//
+// 返回:
+// - 初始化后的User实例的指针。
 func NewUser(discov discovery.SvcDiscoveryRegistry, rpcRegisterName, messageGateWayRpcName string,
 	imAdminUserID []string) *User {
+	// 尝试使用服务发现注册表获取与UserService的连接。
 	conn, err := discov.GetConn(context.Background(), rpcRegisterName)
 	if err != nil {
+		// 如果尝试连接时发生错误，程序将退出。
 		program.ExitWithError(err)
 	}
+	// 创建一个用于用户操作的新客户端。
 	client := user.NewUserClient(conn)
+	// 初始化并返回User实例。
 	return &User{Discov: discov, Client: client,
 		conn:                  conn,
 		MessageGateWayRpcName: messageGateWayRpcName,

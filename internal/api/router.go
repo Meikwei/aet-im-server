@@ -19,15 +19,20 @@ import (
 )
 
 func newGinRouter(disCov discovery.SvcDiscoveryRegistry, config *Config) *gin.Engine {
+	// 配置服务发现选项，包括gRPC客户端设置和负载平衡策略。
 	disCov.AddOption(mw.GrpcClient(), grpc.WithTransportCredentials(insecure.NewCredentials()),
 		grpc.WithDefaultServiceConfig(fmt.Sprintf(`{"LoadBalancingPolicy": "%s"}`, "round_robin")))
+	// 设置Gin引擎运行模式为发布模式，禁用日志和其他开发特性。
 	gin.SetMode(gin.ReleaseMode)
+	// 创建一个新的Gin引擎实例。
 	r := gin.New()
+	// 如果可用，注册自定义的验证函数。
 	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
 		_ = v.RegisterValidation("required_if", RequiredIf)
 	}
+	// 使用中间件来处理跨域请求、解析操作ID等。
 	r.Use(gin.Recovery(), mw.CorsHandler(), mw.GinParseOperationID())
-	// init rpc client here
+	// 在这里初始化RPC客户端。
 	userRpc := rpcclient.NewUser(disCov, config.Share.RpcRegisterName.User, config.Share.RpcRegisterName.MessageGateway,
 		config.Share.IMAdminUserID)
 	groupRpc := rpcclient.NewGroup(disCov, config.Share.RpcRegisterName.Group)
@@ -36,10 +41,11 @@ func newGinRouter(disCov discovery.SvcDiscoveryRegistry, config *Config) *gin.En
 	conversationRpc := rpcclient.NewConversation(disCov, config.Share.RpcRegisterName.Conversation)
 	authRpc := rpcclient.NewAuth(disCov, config.Share.RpcRegisterName.Auth)
 	thirdRpc := rpcclient.NewThird(disCov, config.Share.RpcRegisterName.Third, config.RpcConfig.Prometheus.GrafanaURL)
-
+	// 初始化各种API处理对象。
 	u := NewUserApi(*userRpc)
 	m := NewMessageApi(messageRpc, userRpc, config.Share.IMAdminUserID)
 	ParseToken := GinParseToken(authRpc)
+	// 用户相关路由分组。
 	userRouterGroup := r.Group("/user")
 	{
 		userRouterGroup.POST("/user_register", u.UserRegister)

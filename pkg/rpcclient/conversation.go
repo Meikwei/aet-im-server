@@ -31,12 +31,23 @@ type Conversation struct {
 	discov discovery.SvcDiscoveryRegistry
 }
 
+// NewConversation 创建一个Conversation实例。
+// 
+// 参数:
+// discov - 服务发现注册接口，用于获取远程服务的连接。
+// rpcRegisterName - RPC服务的注册名称，用于标识具体的服务。
+// 
+// 返回值:
+// 返回一个初始化好的Conversation指针。
 func NewConversation(discov discovery.SvcDiscoveryRegistry, rpcRegisterName string) *Conversation {
+    // 通过服务发现获取与RPC服务的连接
 	conn, err := discov.GetConn(context.Background(), rpcRegisterName)
 	if err != nil {
+		// 如果获取连接失败，则程序退出
 		program.ExitWithError(err)
 	}
 	client := pbconversation.NewConversationClient(conn)
+	// 创建并返回一个Conversation实例
 	return &Conversation{discov: discov, conn: conn, Client: client}
 }
 

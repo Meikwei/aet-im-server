@@ -30,14 +30,28 @@ type Third struct {
 	GrafanaUrl string
 }
 
+// NewThird 创建一个新的Third实例。
+//
+// 参数:
+// - discov: 一个实现了SvcDiscoveryRegistry接口的对象，用于服务发现。
+// - rpcRegisterName: 用于注册或标识Third服务的名称。
+// - grafanaUrl: Grafana的URL，用于访问Grafana服务。
+//
+// 返回值:
+// - 返回一个初始化好的*Third对象。
 func NewThird(discov discovery.SvcDiscoveryRegistry, rpcRegisterName, grafanaUrl string) *Third {
+    // 通过服务发现获取与Third服务的连接。
 	conn, err := discov.GetConn(context.Background(), rpcRegisterName)
 	if err != nil {
-		program.ExitWithError(err)
+		program.ExitWithError(err) // 如果获取连接失败，则退出程序。
 	}
+	
+    // 使用获取的连接创建Third服务的客户端。
 	client := third.NewThirdClient(conn)
 	if err != nil {
-		program.ExitWithError(err)
+		program.ExitWithError(err) // 如果创建客户端失败，则退出程序。
 	}
+	
+    // 返回初始化好的Third实例。
 	return &Third{discov: discov, Client: client, conn: conn, GrafanaUrl: grafanaUrl}
 }

@@ -135,12 +135,23 @@ type Message struct {
 	discov discovery.SvcDiscoveryRegistry
 }
 
+// NewMessage 创建一个新的Message实例。
+// 
+// 参数:
+// discov - 用于服务发现的注册表实例。
+// rpcRegisterName - RPC服务的注册名称。
+// 
+// 返回值:
+// 返回一个初始化好的Message指针。
 func NewMessage(discov discovery.SvcDiscoveryRegistry, rpcRegisterName string) *Message {
+    // 通过服务发现获取与RPC服务的连接
 	conn, err := discov.GetConn(context.Background(), rpcRegisterName)
 	if err != nil {
+		// 如果获取连接失败，则退出程序
 		program.ExitWithError(err)
 	}
 	client := msg.NewMsgClient(conn)
+	// 创建并返回一个新的Message实例
 	return &Message{discov: discov, conn: conn, Client: client}
 }
 

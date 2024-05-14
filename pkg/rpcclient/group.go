@@ -32,11 +32,22 @@ type Group struct {
 	discov discovery.SvcDiscoveryRegistry
 }
 
+// NewGroup 创建一个新的Group实例。
+//
+// 参数:
+// discov - 服务发现注册接口，用于获取远程服务的连接。
+// rpcRegisterName - RPC服务的注册名称，用于标识具体的服务。
+//
+// 返回值:
+// 返回一个初始化好的Group指针。
 func NewGroup(discov discovery.SvcDiscoveryRegistry, rpcRegisterName string) *Group {
+    // 通过服务发现获取与指定RPC服务的连接
 	conn, err := discov.GetConn(context.Background(), rpcRegisterName)
 	if err != nil {
+		// 如果获取连接失败，则程序异常退出
 		program.ExitWithError(err)
 	}
+	// 基于获取的连接，创建Group客户端实例
 	client := group.NewGroupClient(conn)
 	return &Group{discov: discov, Client: client}
 }
